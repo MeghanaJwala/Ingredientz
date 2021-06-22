@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".Priority_Page"
+    android:orientation="vertical"
+    android:layout_weight="0.5"
+    android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select your priority from the two mentioned options below:"
+            android:textSize="25sp"
+            android:layout_margin="10sp"
+            android:textAlignment="center"
+            android:textColor="#000000" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            tools:layout_editor_absoluteX="29dp"
+            tools:layout_editor_absoluteY="504dp"
+            tools:ignore="MissingConstraints"
+            android:id="@+id/radio_priority">
+
+            <RadioButton
+                android:id="@+id/distance"
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:checked="false"
+                android:text="Distance" />
+
+            <RadioButton
+                android:id="@+id/price"
+                android:layout_width="115dp"
+                android:layout_height="match_parent"
+                android:checked="true"
+                android:text="Price" />
+        </RadioGroup>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/confirmation"
+            android:text="Confirm"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="35dp"
+            android:background="#0388c3"/>
+
+
+        <Button
+            android:id="@+id/priority_button"
+            android:layout_width="354dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"
+            android:background="#0388c3"
+            tools:ignore="missingConstraints"
+            android:text="@string/priority_button"/>
+
+</LinearLayout>

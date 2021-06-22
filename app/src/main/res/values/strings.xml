@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Ingredientz</string>
+
+    //Login Page
+    <string name="loginid">Mobile Number</string>
+    <string name="password">Password</string>
+    <string name="loginButton">Login</string>
+
+    //Sign-Up Page
+    <string name="signup_button">Sign-Up</string>
+    <string name="name_signup">Name</string>
+    <string name="number_signup">Mobile Number</string>
+    <string name="email_signup">Email</string>
+    <string name="password_signup">Create Password</string>
+    <string name="passconfirm_signup">Re-Enter Password</string>
+    <string name="signup_signup_button">Signup</string>
+
+    //Logo Description
+    <string name="logo" />
+
+    //Developer Page
+    <string name="add_button">Add Item</string>
+    <string name="item_name" />
+    <string name="brand_name" />
+    <string name="price" />
+    <string-array name="categories">
+        <item>Fruits and Vegetables</item>
+        <item>Foodgrains, Oil and Masala</item>
+        <item>Bakery, Cakes and Dairy</item>
+        <item>Beverages</item>
+        <item>Snacks and Branded Foods</item>
+        <item>Beauty and Hygiene</item>
+        <item>Cleaning and Household</item>
+        <item>Kitchen, Garden and Pets</item>
+        <item>Eggs, Meat and Fish</item>
+        <item>Gourmet and World Food</item>
+        <item>Baby Care</item>
+    </string-array>
+
+    <string-array name="none">
+        <item>All</item>
+        <item>Fresh Vegetables</item>
+        <item>Herbs and Seasoning</item>
+        <item>Fresh Fruits</item>
+        <item>Exotic Fruits and Veggies</item>
+        <item>Organic Fruits and Vegetables</item>
+        <item>Cuts and Sprouts</item>
+        <item>Flower Bouquets and Bunches</item>
+    </string-array>
+
+    <string name="title_activity_home_page">HomePage</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string name="home_second">Home Second</string>
+
+    <string name="priority_button">Proceed</string>
+</resources>
+
+
