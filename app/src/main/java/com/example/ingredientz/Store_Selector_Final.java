@@ -32,7 +32,7 @@ import java.util.Objects;
 
 public class Store_Selector_Final extends AppCompatActivity {
 
-    ArrayList<String> store_names, cart_items, store_num;
+    ArrayList<String> store_names, cart_items;
     ArrayList<Integer> number_of_items, total_cost, distance;
     FirebaseDatabase data, data2, data3;
     String temp_store_name_holder;
@@ -46,7 +46,7 @@ public class Store_Selector_Final extends AppCompatActivity {
     RecyclerView.LayoutManager mLayoutManager;
 
     ArrayList<Store_Details_Variables> store_details_variables = new ArrayList<>();
-
+    ArrayList<String> store_num = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,8 +56,6 @@ public class Store_Selector_Final extends AppCompatActivity {
         num = i.getStringExtra("Number");
         choice = i.getStringExtra("Choice");
         Log.d("intent choice: ", choice);
-
-        LinearLayout layout = (LinearLayout)findViewById(R.id.store);
 
 
         data = FirebaseDatabase.getInstance();
@@ -92,10 +90,10 @@ public class Store_Selector_Final extends AppCompatActivity {
         total_cost.add(number_of_items.get(2) * 40);
         total_cost.add(number_of_items.get(3) * 25);
 
-        store_num.add("9849912344");
         store_num.add("8179971915");
-        store_num.add("8019234091");
-        store_num.add("9575812345");
+        store_num.add("8179971915");
+        store_num.add("8179971915");
+        store_num.add("8179971915");
 
 
 
@@ -125,43 +123,17 @@ public class Store_Selector_Final extends AppCompatActivity {
         for (int j = 0; j < 4; j++) {
             int index = (int)weights[j][1];
             Log.d("the", "index" + index);
-            store_details_variables.add(new Store_Details_Variables(store_names.get(index), "Total Cost: " + total_cost.get(index), "Items Available: " + number_of_items.get(index), "Distance: " + distance.get(index) + " km"));
+            store_details_variables.add(new Store_Details_Variables(store_names.get(index), "Total Cost: Rs. " + total_cost.get(index), "Items Available: " + number_of_items.get(index), "Distance: " + distance.get(index) + " km",
+                    store_num.get(index), num));
         }
 
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(Store_Selector_Final.this);
-        mAdapter = new Adapter_View(store_details_variables);
+        mAdapter = new Adapter_View(store_details_variables,Store_Selector_Final.this);
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
-
-        layout.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ref.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                        try {
-
-//        layout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                int position = mRecyclerView.getChildAdapterPosition(null);
-//                store_details_variables.get(position);
-//
-//                Log.d("position: ", store_details_variables.get(0).get(position));
-//
-//                Intent order = new Intent(Store_Selector_Final.this, Priority_Page.class);
-//                order.putExtra("Store_Name", );
-//                order.putExtra("Store_Number", )
-//                order.putExtras(getIntent());
-//                startActivity(order);
-//                finish();
-//
-//            }
-//        });
     }
 
     public static  void Sort2DArrayBasedOnColumnNumber (float[][] array, final int columnNumber, String choice) {

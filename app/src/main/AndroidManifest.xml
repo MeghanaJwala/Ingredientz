@@ -15,9 +15,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ingredientz">
-        <activity android:name=".Store_Selector_Final"></activity>
-        <activity android:name=".Priority_Page"
-            android:parentActivityName=".cart"></activity>
+        <activity android:name=".Customer_Order_Details"
+            android:parentActivityName=".Store_Login"
+            android:noHistory="true"/>
+        <activity android:name=".Store_Login"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".Place_Order" />
+        <activity android:name=".Store_Selector_Final" />
+        <activity
+            android:name=".Priority_Page"
+            android:parentActivityName=".cart" />
         <activity android:name=".final_order" />
         <activity android:name=".Store_Selector" />
         <activity android:name=".MainActivity" />

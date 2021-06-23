@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Place_Order">
+
+    <TextView
+        android:id="@+id/summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Order Summary"
+        android:textSize="40sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:paddingLeft="10dp"
+        android:textColor="#000000"/>
+
+    <TableRow
+        android:id="@+id/hr"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:id="@+id/store_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Store Name:"
+        android:textSize="25sp"
+        android:layout_marginBottom="10dp"
+        android:paddingLeft="10dp"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:id="@+id/total_cost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total Cost:"
+        android:textSize="25sp"
+        android:layout_marginBottom="10dp"
+        android:paddingLeft="10dp"
+        android:textColor="#000000"/>
+
+    <TableRow
+        android:id="@+id/hr2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000" />
+
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your Address"
+        android:layout_marginTop="40dp"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/confirm_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Confirm Address"
+        android:visibility="gone"   />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="504dp"
+        tools:ignore="MissingConstraints"
+        android:id="@+id/order_option">
+
+        <RadioButton
+            android:id="@+id/delivery"
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:checked="false"
+            android:text="Delivery" />
+
+        <RadioButton
+            android:id="@+id/pickup"
+            android:layout_width="115dp"
+            android:layout_height="match_parent"
+            android:checked="true"
+            android:text="Pickup" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/confirm_mode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Confirm"  />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/final_cart_list"
+        android:paddingTop="10dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/final_place_order"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Place Order"/>
+
+    <Button
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="Refresh"
+        />
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

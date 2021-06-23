@@ -72,7 +72,7 @@ public class item_details extends AppCompatActivity {
 
         brand_name.setText(s2);
         item_name.setText(s1);
-        price.setText(s5);
+        price.setText("Min " + s5);
         quantity.setText(s3);
         rating.setText("Rating:" + " " + s4);
 

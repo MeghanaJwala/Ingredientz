@@ -95,6 +95,22 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
 
+                    else if(id.equals("8179971915")){
+                        String devPass = snapshot.child(id).child("password_signup").getValue(String.class);
+
+                        assert devPass != null;
+                        if(pass.equals("3")){
+                            Intent store_intent = new Intent(MainActivity.this, Store_Login.class);
+                            Toast.makeText(MainActivity.this, "Accept/Reject Orders", Toast.LENGTH_SHORT).show();
+                            store_intent.putExtra("Number", id);
+                            startActivity(store_intent);
+                            finish();
+                        }
+                        else{
+                            Toast.makeText(MainActivity.this, "Wrong Password for store login.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
                     else if(passwordFromDB.equals(pass)){
 
                         Intent intent3 = new Intent(MainActivity.this, HomePage.class);

@@ -1,11 +1,14 @@
 package com.example.ingredientz;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.job.JobInfo;
 import android.content.DialogInterface;
@@ -55,6 +58,22 @@ public class HomePage extends AppCompatActivity {
     ImageButton imageButton2;
 
     SearchView searchView;
+
+    String Name;
+    String Brand;
+    String Price;
+    String Quantity;
+    String Rating;
+    String UID;
+
+    ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK) {
+                    Intent intent_on_back_pressed = getIntent();
+                    num = intent_on_back_pressed.getStringExtra("Mobile");
+                }
+            });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -357,29 +376,31 @@ public class HomePage extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                         try {
-                            String Name = Objects.requireNonNull(snapshot.child(Objects.requireNonNull(list_of_items.getItem(position))).child("item_name").getValue()).toString();
-                            String Brand = Objects.requireNonNull(snapshot.child(Objects.requireNonNull(list_of_items.getItem(position))).child("brand_name").getValue()).toString();
-                            String Price = Objects.requireNonNull(snapshot.child(Objects.requireNonNull(list_of_items.getItem(position))).child("price").getValue()).toString();
-                            String Quantity = Objects.requireNonNull(snapshot.child(Objects.requireNonNull(list_of_items.getItem(position))).child("quantity").getValue()).toString();
-                            String Rating = Objects.requireNonNull(snapshot.child(Objects.requireNonNull(list_of_items.getItem(position))).child("rating").getValue()).toString();
-                            String UID = Objects.requireNonNull(snapshot.child(Objects.requireNonNull(list_of_items.getItem(position))).child("uid").getValue()).toString();
+                            Name = Objects.requireNonNull(snapshot.child(Objects.requireNonNull(list_of_items.getItem(position))).child("item_name").getValue()).toString();
+                            Brand = Objects.requireNonNull(snapshot.child(Objects.requireNonNull(list_of_items.getItem(position))).child("brand_name").getValue()).toString();
+                            Price = Objects.requireNonNull(snapshot.child(Objects.requireNonNull(list_of_items.getItem(position))).child("price").getValue()).toString();
+                            Quantity = Objects.requireNonNull(snapshot.child(Objects.requireNonNull(list_of_items.getItem(position))).child("quantity").getValue()).toString();
+                            Rating = Objects.requireNonNull(snapshot.child(Objects.requireNonNull(list_of_items.getItem(position))).child("rating").getValue()).toString();
+                            UID = Objects.requireNonNull(snapshot.child(Objects.requireNonNull(list_of_items.getItem(position))).child("uid").getValue()).toString();
 
-                            Intent intent = new Intent(HomePage.this, item_details.class);
-                            intent.putExtra("Item_Name", Name);
-                            intent.putExtra("Brand", Brand);
-                            intent.putExtra("Price", Price);
-                            intent.putExtra("Quantity", Quantity);
-                            intent.putExtra("Rating", Rating);
-                            intent.putExtra("UID", UID);
-                            intent.putExtra("Mobile Number", number);
-                            intent.putExtras(getIntent());
-                            startActivity(intent);
-                            finish();
+                            openSomeActivityForResult();
                         }
 
                         catch (Exception e) {
                             Toast.makeText(HomePage.this, e.toString(), Toast.LENGTH_SHORT).show();
                         }
+                    }
+
+                    public void openSomeActivityForResult() {
+                        Intent intent = new Intent(HomePage.this, item_details.class);
+                        intent.putExtra("Item_Name", Name);
+                        intent.putExtra("Brand", Brand);
+                        intent.putExtra("Price", Price);
+                        intent.putExtra("Quantity", Quantity);
+                        intent.putExtra("Rating", Rating);
+                        intent.putExtra("UID", UID);
+                        intent.putExtra("Mobile Number", number);
+                        someActivityResultLauncher.launch(intent);
                     }
 
                     @Override

@@ -119,14 +119,14 @@ public class Store_Selector extends AppCompatActivity {
         new Handler().postDelayed(() -> {
             if(isDone) {
                 for (int addToView = 0; addToView < store_names.size(); addToView++) {
-                    store_details_variables.add(new Store_Details_Variables(store_names.get(addToView), "Total Cost: " + total_cost.get(addToView), "Items Available: " + number_of_items.get(addToView) + "/" + cart_items.size(), "Distance: " + distance.get(addToView) + " km"));
+                   // store_details_variables.add(new Store_Details_Variables(store_names.get(addToView), "Total Cost: " + total_cost.get(addToView), "Items Available: " + number_of_items.get(addToView) + "/" + cart_items.size(), "Distance: " + distance.get(addToView) + " km"));
                 }
 
                 new Handler().postDelayed(() -> {
                     mRecyclerView = findViewById(R.id.recyclerView);
                     mRecyclerView.setHasFixedSize(true);
                     mLayoutManager = new LinearLayoutManager(Store_Selector.this);
-                    mAdapter = new Adapter_View(store_details_variables);
+                    mAdapter = new Adapter_View(store_details_variables,Store_Selector.this);
 
                     mRecyclerView.setLayoutManager(mLayoutManager);
                     mRecyclerView.setAdapter(mAdapter);
@@ -136,14 +136,14 @@ public class Store_Selector extends AppCompatActivity {
             else{
                 new Handler().postDelayed(() -> {
                     for (int addToView = 0; addToView < store_names.size(); addToView++) {
-                        store_details_variables.add(new Store_Details_Variables(store_names.get(addToView), "Total Cost: " + total_cost.get(addToView), "Items Available: " + number_of_items.get(addToView) + "/" + cart_items.size(), "Distance: " + distance.get(addToView) + " km"));
+                        //store_details_variables.add(new Store_Details_Variables(store_names.get(addToView), "Total Cost: " + total_cost.get(addToView), "Items Available: " + number_of_items.get(addToView) + "/" + cart_items.size(), "Distance: " + distance.get(addToView) + " km"));
                     }
 
                     new Handler().postDelayed(() -> {
                         mRecyclerView = findViewById(R.id.recyclerView);
                         mRecyclerView.setHasFixedSize(true);
                         mLayoutManager = new LinearLayoutManager(Store_Selector.this);
-                        mAdapter = new Adapter_View(store_details_variables);
+                        mAdapter = new Adapter_View(store_details_variables,Store_Selector.this);
 
                         mRecyclerView.setLayoutManager(mLayoutManager);
                         mRecyclerView.setAdapter(mAdapter);
